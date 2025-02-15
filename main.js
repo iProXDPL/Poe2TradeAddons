@@ -29,9 +29,7 @@ setInterval(()=>{
     for(let i=0;i<copyallbutton.length;i++){
         let btn =copyallbutton[i];
         btn.onclick=(e)=>{
-            let text = e.target.parentNode.parentNode.childNodes[2].childNodes[0].innerText.split("\n");
-
-            console.log(text);
+            let text = e.target.parentNode.parentNode.childNodes[2].childNodes[0].innerText;
             navigator.clipboard.writeText(text);
             document.querySelector("#trade > div:nth-child(1) > div.toast-container.toast-bottom-center").innerHTML=`<div class="toast toast-success" style="display: block;">\x3C!----> <div class="toast-title"></div> <div class="toast-message">Item text copied.</div></div>`
             setTimeout(()=>{
