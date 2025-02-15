@@ -42,15 +42,6 @@ setInterval(()=>{
     }
 },500)
 
-function getRandomColor() {
-  var letters = '0123456789ABCDEF';
-  var color = '#';
-  for (var i = 0; i < 6; i++) {
-    color += letters[Math.floor(Math.random() * 16)];
-  }
-  return color;
-}
-
 //Data from https://poe2db.tw/us/Distilled_Emotions#DistilledEmotionsPassives
 function switchAllocates(Allocates){
     switch(Allocates){case "Beef":
