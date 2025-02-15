@@ -1,4 +1,4 @@
 Tampermonkey Addon by iPro
-Alocates Show,
+Allocates Show,
 Search Button fix,
 Copy Button fix 
