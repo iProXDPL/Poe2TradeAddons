@@ -11,7 +11,7 @@
 setInterval(()=>{
     var enchantMod = document.getElementsByClassName("enchantMod");
     for(let i=0;i<enchantMod.length;i++){
-        if(enchantMod[i].childNodes[1].childNodes.length!==2){
+        if(enchantMod[i].childNodes[1].childNodes.length!==2 && enchantMod[i].parentElement.parentElement.childNodes[1].innerText=='Megalomaniac\nDiamond'){
             let text = enchantMod[i].childNodes[1].textContent
             var nameEnchant=text.replace("Allocates ","")
             var all = `<div style="color:green;">${switchAllocates(nameEnchant)}</div>`;
@@ -29,7 +29,9 @@ setInterval(()=>{
     for(let i=0;i<copyallbutton.length;i++){
         let btn =copyallbutton[i];
         btn.onclick=(e)=>{
-            let text = e.target.parentNode.parentNode.childNodes[2].childNodes[0].innerText;
+            let text = e.target.parentNode.parentNode.childNodes[2].childNodes[0].innerText.split("\n");
+
+            console.log(text);
             navigator.clipboard.writeText(text);
             document.querySelector("#trade > div:nth-child(1) > div.toast-container.toast-bottom-center").innerHTML=`<div class="toast toast-success" style="display: block;">\x3C!----> <div class="toast-title"></div> <div class="toast-message">Item text copied.</div></div>`
             setTimeout(()=>{
