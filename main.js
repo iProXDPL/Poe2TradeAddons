@@ -16,7 +16,7 @@ setInterval(()=>{
             let text = enchantMod[i].childNodes[1].textContent
             var nameEnchant=text.replace("Allocates ","")
             var all = `<div style="color:green;">${switchAllocates(nameEnchant)}</div>`;
-            enchantMod[i].childNodes[1].innerHTML += all;
+            enchantMod[i].childNodes[1].innerHTML += wrapNumsWithDiv(all);
         }
     }
     //Search btn
@@ -41,6 +41,20 @@ setInterval(()=>{
         }
     }
 },500)
+//Random color
+function getRandomLightColor() {
+    const r = Math.floor(Math.random() * 128) + 128; // 128-255 (jasne)
+    const g = Math.floor(Math.random() * 128) + 128; // 128-255 (jasne)
+    const b = Math.floor(Math.random() * 128) + 128; // 128-255 (jasne)
+    return `rgb(${r}, ${g}, ${b})`;
+}
+//Find number and -,+,%
+function wrapNumsWithDiv(text) {
+    return text.replace(/[-+]?\d+%?/g, (match) => {
+        const randomColor = getRandomLightColor();
+        return `<div style="display:inline; color:${randomColor}; font-weight:bold;">${match}</div>`;
+    });
+}
 
 //Data from https://poe2db.tw/us/Distilled_Emotions#DistilledEmotionsPassives
 function switchAllocates(Allocates){
@@ -1853,5 +1867,4 @@ function switchAllocates(Allocates){
         case "Hunter's Talisman":
             return "<div>+1 Charm Slot<div>";
             break;
-}
-}
+                     }}
